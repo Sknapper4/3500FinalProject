@@ -55,10 +55,10 @@
                     <a href="#" class="text-dark">Black</a>
                 </li>
                 <li class="p-2 text-center">
-                    <a class="text-dark" href="#">Grey</a>
+                    <a class="text-dark" href="#">Cream</a>
                 </li>
                 <li class="p-2 text-center">
-                    <a class="text-dark" href="#">White</a>
+                    <a class="text-dark" href="#">Tan</a>
                 </li>
                 <li class="p-2 text-center">
                     <a class="text-dark" href="#">Other</a>
@@ -66,7 +66,7 @@
             </ul>
         </div>
         </div>
-        <div class="col-10">
+        <div class="col-10 pre-scrollable">
 
             <?php
             include 'data.php';
@@ -76,14 +76,14 @@
                     <img src="'.$val["pic"].'" height=150>
                 </div>
                 <div class="col-8 bg-light">
-                    <strong>'.$val["title"].'</strong><br><small>'.$val["company"].'</small>
+                    <a href="?id='.$val["stock"].'"><strong>'.$val["title"].'</strong></a><br><small>'.$val["company"].'</small>
                     <div class="mt-2">
                         '.$val["description"].'
                     </div>
                 </div>
                 <div class="col-2 bg-light text-right">
                     <div>
-                        In Stock:'. $val["stock"].'
+                        In Stock: '. $val["stock"].'
                     </div>
                     <div class="mt-3">
                         <strong>&curren;'. $val["price"].'</strong>
