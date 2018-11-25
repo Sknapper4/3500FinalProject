@@ -27,12 +27,20 @@
         </nav>
     </div>
 </header>
-<body class="">
-<main class="">
+<body>
 
+                <?php   /* you will need to replace this hard-coded data with appropriate PHP */
+                include "data.php";
+                $id = $_GET['id'];
+                $instance = $items[$id];
+                echo '<div class="">
+                         <img src="'.$instance["pic"].'" class="col-6 m-5">
+                      </div>
+                      <div class="col-6">
+                        Hey
+                       </div>';
+                ?>
 
-
-</main>
 
 </body>
 </html>

@@ -65,7 +65,7 @@
                     <img src="' . $val["pic"] . '" height=150>
                 </div>
                 <div class="col-8 bg-light">
-                    <a href="detail.php?id=' . $val["stock"] . '"><strong>' . $val["title"] . '</strong></a><br><small>' . $val["company"] . '</small>
+                    <a href="product.php?id=' . $val["id"] . '"><strong>' . $val["title"] . '</strong></a><br><small>' . $val["company"] . '</small>
                     <div class="mt-2">
                         ' . $val["description"] . '
                     </div>
@@ -89,7 +89,7 @@
                     <img src="'.$val["pic"].'" height=150>
                 </div>
                 <div class="col-8 bg-light">
-                    <a href="detail.php?id='.$val["stock"].'"><strong>'.$val["title"].'</strong></a><br><small>'.$val["company"].'</small>
+                    <a href="product.php?id='.$val["id"].'"><strong>'.$val["title"].'</strong></a><br><small>'.$val["company"].'</small>
                     <div class="mt-2">
                         '.$val["description"].'
                     </div>
