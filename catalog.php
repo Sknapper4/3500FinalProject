@@ -35,16 +35,19 @@
             <div class= "card-header bg-secondary text-white text-center">Type</div>
             <ul class="list-inline">
                 <li class="p-2 ml-0 text-center">
-                    <a href="#" class="text-dark">Recliners</a>
+                    <a href="catalog.php?type=Recliner" class="text-dark">Recliners</a>
                 </li>
                 <li class="p-2 text-center">
-                    <a class="text-dark" href="#">Couches</a>
+                    <a class="text-dark" href="catalog.php?type=Couch">Couches</a>
                 </li>
                 <li class="p-2 text-center">
-                    <a class="text-dark" href="#">Tables</a>
+                    <a class="text-dark" href="catalog.php?type=Table">Tables</a>
                 </li>
                 <li class="p-2 text-center">
-                    <a class="text-dark" href="#">Mattresses</a>
+                    <a class="text-dark" href="catalog.php?type=Mattress">Mattresses</a>
+                </li>
+                <li class="p-2 text-center">
+                    <a class="text-dark" href="catalog.php">All</a>
                 </li>
             </ul>
         </div>
@@ -70,8 +73,35 @@
 
             <?php
             include 'data.php';
-            foreach ($items as $val) {
-                echo '<div class="row bg-white mt-2 rounded border border-info">
+            if (isset($_GET['type'])){
+                $type = $_GET['type'];
+                foreach ($items as $val) {
+                    if ($val["type"] == $type) {
+                        echo '<div class="row bg-white mt-2 rounded border border-info">
+                <div class="col-2">
+                    <img src="' . $val["pic"] . '" height=150>
+                </div>
+                <div class="col-8 bg-light">
+                    <a href="?id=' . $val["stock"] . '"><strong>' . $val["title"] . '</strong></a><br><small>' . $val["company"] . '</small>
+                    <div class="mt-2">
+                        ' . $val["description"] . '
+                    </div>
+                </div>
+                <div class="col-2 bg-light text-right">
+                    <div>
+                        In Stock: ' . $val["stock"] . '
+                    </div>
+                    <div class="mt-3">
+                        <strong>&curren;' . $val["price"] . '</strong>
+                    </div>
+                </div>
+            </div>';
+                    }
+                }
+            }
+            else{
+                foreach ($items as $val) {
+                    echo '<div class="row bg-white mt-2 rounded border border-info">
                 <div class="col-2">
                     <img src="'.$val["pic"].'" height=150>
                 </div>
@@ -90,6 +120,7 @@
                     </div>
                 </div>
             </div>';
+                }
             }
             ?>
 
