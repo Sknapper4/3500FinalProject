@@ -51,23 +51,6 @@
                 </li>
             </ul>
         </div>
-        <div class="card p-0 m-2 mt-5">
-            <div class= "card-header bg-secondary text-white text-center">Color</div>
-            <ul class="list-inline">
-                <li class="p-2 ml-0 text-center">
-                    <a href="#" class="text-dark">Black</a>
-                </li>
-                <li class="p-2 text-center">
-                    <a class="text-dark" href="#">Cream</a>
-                </li>
-                <li class="p-2 text-center">
-                    <a class="text-dark" href="#">Tan</a>
-                </li>
-                <li class="p-2 text-center">
-                    <a class="text-dark" href="#">Other</a>
-                </li>
-            </ul>
-        </div>
         </div>
         <div class="col-10 pre-scrollable">
 
@@ -82,7 +65,7 @@
                     <img src="' . $val["pic"] . '" height=150>
                 </div>
                 <div class="col-8 bg-light">
-                    <a href="?id=' . $val["stock"] . '"><strong>' . $val["title"] . '</strong></a><br><small>' . $val["company"] . '</small>
+                    <a href="detail.php?id=' . $val["stock"] . '"><strong>' . $val["title"] . '</strong></a><br><small>' . $val["company"] . '</small>
                     <div class="mt-2">
                         ' . $val["description"] . '
                     </div>
@@ -106,7 +89,7 @@
                     <img src="'.$val["pic"].'" height=150>
                 </div>
                 <div class="col-8 bg-light">
-                    <a href="?id='.$val["stock"].'"><strong>'.$val["title"].'</strong></a><br><small>'.$val["company"].'</small>
+                    <a href="detail.php?id='.$val["stock"].'"><strong>'.$val["title"].'</strong></a><br><small>'.$val["company"].'</small>
                     <div class="mt-2">
                         '.$val["description"].'
                     </div>
