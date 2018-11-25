@@ -4,13 +4,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <title>Name of Furniture Store</title>
+
+
 </head>
 <header>
-
-</header>
-<body class="landing-bg">
-<div class="ml-2 mr-2">
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
@@ -29,23 +26,22 @@
             </div>
         </nav>
     </div>
+</header>
+<body>
 
-    <div class="row">
-        <div class="col-2">
-
-        </div>
-        <div class="col-8 text-center">
-            <div class="card mt-lg-5 border-info">
-                <h2 class="h2 m-2 p-2">Find Furniture</h2>
-                <input class="m-4 p-2 rounded">
-            </div>
-        </div>
-
-    </div>
-</div>
+                <?php   /* you will need to replace this hard-coded data with appropriate PHP */
+                include "data.php";
+                $id = $_GET['id'];
+                $instance = $items[$id];
+                echo '<div class="">
+                         <img src="'.$instance["pic"].'" class="col-6 m-5">
+                      </div>
+                      <div class="col-6">
+                        Hey
+                       </div>';
+                ?>
 
 
-
-	
 </body>
 </html>
+
