@@ -10,19 +10,23 @@
 <header>
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
-                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand text-white" href="#">Name of Furniture Store</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand text-white" href="index.html">Name of Furniture Store</a>
-
-            <div class="collapse navbar-collapse justify-content-end font-weight-bold" id="navbarToggler">
-                <div class="navbar-nav nav-tabs bg-transparent border-bottom-0">
-                    <a class="nav-item nav-link active bg-transparent border-0 text-white" href="index.html">Home <span
-                            class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link bg-transparent text-white " href="catalog.php">Shop</a>
-                    <a class="nav-item nav-link bg-transparent text-white" href="login.html">Login</a>
-                </div>
+            <div class="collapse navbar-collapse justify-content-end font-weight-bold" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white nav-item" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link bg-transparent text-white active" href="catalog.php">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link bg-transparent text-white" href="login.html">Login</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </div>
@@ -115,5 +119,8 @@
 
 </main>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
