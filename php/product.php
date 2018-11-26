@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 
 
 </head>
@@ -18,13 +18,13 @@
             <div class="collapse navbar-collapse justify-content-end font-weight-bold" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link text-white nav-item" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-white nav-item" href="../index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-item nav-link bg-transparent text-white" href="catalog.php">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link bg-transparent text-white" href="login.html">Login</a>
+                        <a class="nav-item nav-link bg-transparent text-white" href="../login.html">Login</a>
                     </li>
                 </ul>
             </div>
