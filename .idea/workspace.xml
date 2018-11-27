@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3dc534c9-6bf1-42e0-8d4b-cfb1a26c9a7d" name="Default Changelist" comment="Worked on create account page">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/signUpValidation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/catalog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createAccount.html" beforeDir="false" afterPath="$PROJECT_DIR$/createAccount.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/data.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_print.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_print.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/product.php" afterDir="false" />
-    </list>
+    <list default="true" id="3dc534c9-6bf1-42e0-8d4b-cfb1a26c9a7d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -46,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/createAccount.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="33" lean-forward="true" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+            <state relative-caret-position="140">
+              <caret line="42" column="61" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -124,10 +112,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1080" />
-    <option name="y" value="-372" />
+    <option name="y" value="23" />
     <option name="width" value="1080" />
-    <option name="height" value="1897" />
+    <option name="height" value="807" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -183,7 +170,7 @@
       <workItem from="1543187621488" duration="938000" />
       <workItem from="1543189085519" duration="459000" />
       <workItem from="1543189619244" duration="3621000" />
-      <workItem from="1543265161561" duration="3850000" />
+      <workItem from="1543265161561" duration="4285000" />
     </task>
     <task id="LOCAL-00001" summary="need to pull">
       <created>1543189205849</created>
@@ -199,14 +186,21 @@
       <option name="project" value="LOCAL" />
       <updated>1543199735093</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Worked on create account page">
+      <created>1543272669563</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1543272669563</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8868000" />
+    <option name="totallyTimeSpent" value="9303000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1080" y="-372" width="1080" height="1897" extended-state="0" />
+    <frame x="0" y="23" width="1080" height="807" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16088632" />
@@ -221,7 +215,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49952784" weight="0.13739613" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49952784" visible="true" weight="0.34685314" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004721" side_tool="true" weight="0.32970184" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -296,8 +290,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/createAccount.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="33" lean-forward="true" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+        <state relative-caret-position="140">
+          <caret line="42" column="61" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="61" />
         </state>
       </provider>
     </entry>
