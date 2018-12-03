@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,29 +20,45 @@
 <body>
 <div class="ml-2 mr-2">
     <div class="landing-bg">
-        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Wacky Wave</a>
+            <a class="navbar-brand" href="index.php">
+                <img src="Images/WackyWaveLogo.png" width="25" height="25" class="d-inline-block align-top" alt="">
+                WackyWave
+            </a>
 
             <div class="collapse navbar-collapse justify-content-end font-weight-bold" id="navbarToggler">
                 <div class="navbar-nav nav-tabs bg-transparent border-bottom-0">
-                    <a class="nav-item nav-link active bg-transparent border-0" href="index.html">Home <span
-                            class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active bg-transparent border-0" href="index.php">Home <span
+                                class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link bg-transparent" href="catalog.php">Shop</a>
-                    <a class="nav-item nav-link bg-transparent" href="about_us.html">About Us</a>
-                    <a class="nav-item nav-link bg-transparent" href="origin_story.html">Origins</a>
-                    <a class="nav-item nav-link bg-transparent" href="reviews.html">Reviews</a>
-                    <a class="nav-item nav-link bg-transparent" href="login.html">Log in</a>
+                    <a class="nav-item nav-link bg-transparent" href="about_us.php">About Us</a>
+                    <a class="nav-item nav-link bg-transparent" href="origin_story.php">Origins</a>
+                    <a class="nav-item nav-link bg-transparent" href="reviews.php">Reviews</a>
+                    <?php if (isset($_SESSION['username'])) : ?>
+                        <a class="nav-item nav-link bg-transparent" href="catalog.php?logout='1'">Logout</a>
+                        <a class="nav-item nav-link bg-transparent" href="cart.php">
+                            <img src="Images/cart.svg">
+                        </a>
+                    <?php endif ?>
+                    <?php if (!isset($_SESSION['username'])) : ?>
+                        <a class="nav-item nav-link bg-transparent" href="login.php">Log in</a>
+                    <?php endif ?>
                 </div>
             </div>
         </nav>
         <div class="col-4 float-left text-center mt-5 ml-lg-5 ">
-            <h2 class="text-white">Be Wacky Anywhere </h2>
-            <button type="button" class="btn btn-primary"><a class="text-white btn-link no-decor" href="catalog.html">Shop
-                Now</a></button>
+            <?php if (isset($_SESSION['username'])) : ?>
+                <h2 class="text-white">Welcome, <?php echo $_SESSION['username']; ?></h2>
+                <a class="text-white btn no btn-info" href="catalog.php">Shop Now</a>
+            <?php endif ?>
+            <?php if (!isset($_SESSION['username'])) : ?>
+                <h2 class="text-white">Be Wacky Anywhere </h2>
+                <a class="text-white btn no btn-info" href="catalog.php">Shop Now</a>
+            <?php endif ?>
         </div>
     </div>
     <div class="card text-center" id="cards">
@@ -64,18 +81,18 @@
                 <div class="col-sm-4 col-6-size mb-0">
                     <div class="card">
                         <div class="card-body">
-                            <img class="card-img sm-img p-1 mt-0" src="images/Magellan.JPG" alt="Kitten">
+                            <img class="card-img sm-img p-1 mt-0" src="Images/Magellan.JPG" alt="Kitten">
                             <h5 class="card-title">Stephen Knapper</h5>
                             <p class="card-text font-weight-normal">This is a picture of Stephen, wearing a Google shirt he got from Pycon and
-                            holding his kitten, Magellan. This picture is a pretty accurate depiction of who Stephen is. He likes
-                            technology and cats.</p>
+                                holding his kitten, Magellan. This picture is a pretty accurate depiction of who Stephen is. He likes
+                                technology and cats.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4 col-6-size mb-0">
                     <div class="card">
                         <div class="card-body">
-                            <img src="images/IMG_4729.jpeg" class="card-img sm-img p-1 mt-0" alt="Will">
+                            <img src="Images/IMG_4729.jpeg" class="card-img sm-img p-1 mt-0" alt="Will">
                             <h5 class="card-title">Will Stankus</h5>
                             <p class="card-text font-weight-normal">This is a picture of Will. He is experienced in making apps,
                                 and is trying to create a passive income source through his apps.</p>
@@ -88,8 +105,8 @@
         <div class="card-body collapse p-0" id="made" data-parent="#cards">
             <h4 class="card-title pt-4 pb-2">Like who is Wacky Wave</h4>
             <h6>How'd we get started?</h6>
-                <p class="card-text mt-1 font-weight-normal">Told in the form of parody!
-                    Everything in this story is true.
+            <p class="card-text mt-1 font-weight-normal">Told in the form of parody!
+                Everything in this story is true.
                 <br>Only the people, places, and events have been changed.</p>
             <p class="card-text"> </p>
             <a href="origin_story.html" class="btn btn-primary m-3">The Origins</a>
@@ -126,7 +143,7 @@
                                 <!--<button class="btn btn-sm btn-warning ml-1 text-center text-white">3 Stars</button>-->
                             </div>
                             <p class="card-text font-weight-normal">I thought it would wave more. But it doesn't. I was expecting
-                            constant waving and lightning fast movement. Still cool so I gave it 3 stars.</p>
+                                constant waving and lightning fast movement. Still cool so I gave it 3 stars.</p>
                         </div>
                     </div>
                 </div>
@@ -143,8 +160,8 @@
                                 <!--<button class="btn btn-sm btn-4star ml-1 text-center">4 Stars</button>-->
                             </div>
                             <p class="card-text font-weight-normal">Second best decision was a pooper scooper. It's WAY easier
-                            to clean up after my pet wolf. The best purchase I ever made was the wolf. Anyway the inflatable man
-                            is cool. Wasn't as fun as I hoped, that's why only 4. Wolf loves to watch it wave.</p>
+                                to clean up after my pet wolf. The best purchase I ever made was the wolf. Anyway the inflatable man
+                                is cool. Wasn't as fun as I hoped, that's why only 4. Wolf loves to watch it wave.</p>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,96 +27,123 @@
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Wacky Wave</a>
+            <a class="navbar-brand text-white" href="index.php">
+                <img src="Images/WackyWaveLogo.png" width="25" height="25" class="d-inline-block align-top" alt="">
+                WackyWave
+            </a>
 
             <div class="collapse navbar-collapse justify-content-end font-weight-bold" id="navbarToggler">
                 <div class="navbar-nav nav-tabs bg-transparent border-bottom-0">
-                    <a class="nav-item nav-link active bg-transparent border-0" href="index.html">Home <span
-                                class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link bg-transparent" href="catalog.php">Shop</a>
-                    <a class="nav-item nav-link bg-transparent" href="about_us.html">About Us</a>
-                    <a class="nav-item nav-link bg-transparent" href="origin_story.html">Origins</a>
-                    <a class="nav-item nav-link bg-transparent" href="reviews.html">Reviews</a>
-                    <a class="nav-item nav-link bg-transparent" href="login.html">Log in</a>
+                    <a class="nav-item nav-link bg-transparent" href="index.php">Home</a>
+                    <a class="nav-item nav-link active bg-transparent border-0" href="catalog.php">Shop</a>
+                    <a class="nav-item nav-link bg-transparent" href="about_us.php">About Us</a>
+                    <a class="nav-item nav-link bg-transparent" href="origin_story.php">Origins</a>
+                    <a class="nav-item nav-link bg-transparent" href="reviews.php">Reviews</a>
+                    <?php if (isset($_SESSION['username'])) : ?>
+                        <a class="nav-item nav-link bg-transparent" href="catalog.php?logout='1'">Logout</a>
+                        <a class="nav-item nav-link bg-transparent" href="cart.php">
+                            <img src="Images/cart.svg">
+                        </a>
+                    <?php endif ?>
+                    <?php if (!isset($_SESSION['username'])) : ?>
+                        <a class="nav-item nav-link bg-transparent" href="login.php">Log in</a>
+                    <?php endif ?>
                 </div>
             </div>
         </nav>
     </div>
 </header>
 <body>
+<main>
     <div class="row origin-bg">
         <div class="col-2">
             <div class="card p-0 m-2 mt-2">
-                <div class="card-header bg-secondary text-white text-center">Type</div>
+                <div class= "card-header bg-secondary text-white text-center">Color</div>
                 <ul class="list-inline">
                     <li class="p-2 ml-0 text-center">
-                        <a href="catalog.php?type=Recliner" class="text-dark">Recliners</a>
+                        <a href="catalog.php?type=Yellow" class="text-dark">Yellow</a>
                     </li>
                     <li class="p-2 text-center">
-                        <a class="text-dark" href="catalog.php?type=Couch">Couches</a>
+                        <a class="text-dark" href="catalog.php?type=Red">Red</a>
                     </li>
                     <li class="p-2 text-center">
-                        <a class="text-dark" href="catalog.php?type=Table">Tables</a>
+                        <a class="text-dark" href="catalog.php?type=Green">Green</a>
                     </li>
                     <li class="p-2 text-center">
-                        <a class="text-dark" href="catalog.php?type=Mattress">Mattresses</a>
+                        <a class="text-dark" href="catalog.php?type=Blue">Blue</a>
                     </li>
                     <li class="p-2 text-center">
                         <a class="text-dark" href="catalog.php">All</a>
                     </li>
                 </ul>
             </div>
+            <div class="card-body row">
+
+                <button class="btn btn-info text-white" type="button"><a href="cart.php">Cart</a></button>
+            </div>
         </div>
         <div class="col-10 pre-scrollable">
 
             <?php
-            include 'data.php';
-            if (isset($_GET['type'])) {
-                $type = $_GET['type'];
-                foreach ($items as $val) {
-                    if ($val["type"] == $type) {
-                        echo '<div class="row bg-white mt-5 rounded border border-info">
-                                <div class="col-2">
-                                    <img src="' .  $val["pic"] . '" height=150 alt="'  . $val["title"] . '">
-                                </div>
-                                <div class="col-8 bg-light">
-                                    <a class="btn btn-info" href="product.php?id=' . $val[" id"] . '"><strong>' . $val["title"] . '</strong></a><br><small>' . $val["company"] . '</small>
-                                    <div class="mt-2">' . $val["description"] . '</div>
-                                </div>
-                                <div class="col-2 bg-light text-right">
-                                    <div>
-                                        <h6>In Stock: ' . $val["stock"] . '</h6>
-                                    </div>
-                                    <div class="mt-3">
-                                        <strong>&curren;' . $val["price"] . '</strong>
-                                    </div>
-                                </div>
-                            </div>';
-                    } else {
+            $link = mysqli_connect("sql105.epizy.com", "epiz_23073061", "finalproject", "epiz_23073061_FinalProject");
+            // Check connection
+            $query = "SELECT * FROM Products";
+            $items = mysqli_query($link, $query);
+            if (mysqli_num_rows($items) > 0) {
+                while ($row = mysqli_fetch_assoc($items)) {
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $description = $row['description'];
+                    $company = $row['company'];
+                    $stock = $row['stock'];
+                    $price = $row['price'];
+                    $pic = $row['pic'];
+                    $color = $row['color'];
+                    if (isset($_GET['type'])){
+                        $type = $_GET['type'];
+                        if ($color == $type) {
+                            echo '<div class="row bg-white mt-2 rounded border border-info">
+                <div class="col-2">
+                    <img src="' . $pic . '" height=150>
+                </div>
+                <div class="col-8 bg-light">
+                    <a href="product.php?id=' . $id . '"><strong>' . $title . '</strong></a><br><small>' . $company . '</small>
+                    <div class="mt-2">
+                        ' . $description . '
+                    </div>
+                </div>
+                <div class="col-2 bg-light text-right">
+                    <div>
+                        In Stock: ' . $stock . '
+                    </div>
+                    <div class="mt-3">
+                        <strong>&curren;' . $price . '</strong>
+                    </div>
+                </div>
+            </div>';
+                        }
                     }
-                }
-                unset($val);
-            } else {
-                foreach ($items as $val) {
-                    echo '<div class="row bg-white mt-5 rounded border border-info">
-                            <div class="col-2">
-                                <img src="' . $val["pic"] . ' " height=150>
-                            </div>
-                            <div class="col-8 bg-light">
-                                <a href="product.php?id=' . $val["id"] . '"><strong>' . $val["title"] . '</strong></a><br><small>' . $val["company"] . '</small>
-                                <div class="mt-2">
-                                    ' . $val["description"] . '
-                                </div>
-                            </div>
-                            <div class="col-2 bg-light text-right">
-                                <div>
-                                    <h6>In Stock: ' . $val["stock"] . '</h6>
-                                </div>
-                                <div class="mt-3">
-                                    <strong>&curren;' . $val["price"] . '</strong>
-                                </div>
-                            </div>
-                        </div>';
+                    else{
+                        echo '<div class="row bg-white mt-2 rounded border border-info">
+                <div class="col-2">
+                    <img src="' . $pic . '" height=150>
+                </div>
+                <div class="col-8 bg-light">
+                    <a href="product.php?id=' . $id . '"><strong>' . $title . '</strong></a><br><small>' . $company . '</small>
+                    <div class="mt-2">
+                        ' . $description . '
+                    </div>
+                </div>
+                <div class="col-2 bg-light text-right">
+                    <div>
+                        In Stock: ' . $stock . '
+                    </div>
+                    <div class="mt-3">
+                        <strong>&curren;' . $price . '</strong>
+                    </div>
+                </div>
+            </div>';
+                    }
                 }
             }
             ?>
@@ -112,14 +152,9 @@
         </div>
     </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+
+
+</main>
+
 </body>
 </html>

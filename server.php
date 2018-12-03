@@ -7,15 +7,16 @@ $email    = "";
 $errors = array();
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'registration');
+$db = mysqli_connect("sql105.epizy.com", "epiz_23073061",
+    "finalproject", "epiz_23073061_FinalProject");
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
     // receive all input values from the form
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $email = mysqli_real_escape_string($db, $_POST['email']);
-    $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
-    $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
+    $password_1 = mysqli_real_escape_string($db, $_POST['password']);
+    $password_2 = mysqli_real_escape_string($db, $_POST['confirmPassword']);
 
     // form validation: ensure that the form is correctly filled ...
     // by adding (array_push()) corresponding error unto $errors array
@@ -54,3 +55,29 @@ if (isset($_POST['reg_user'])) {
         header('location: index.php');
     }
 }
+
+if (isset($_POST['login_user'])) {
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
+
+    if (empty($username)) {
+        array_push($errors, "Username is required");
+    }
+    if (empty($password)) {
+        array_push($errors, "Password is required");
+    }
+
+    if (count($errors) == 0) {
+        $password = md5($password);
+        $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+        $results = mysqli_query($db, $query);
+        if (mysqli_num_rows($results) == 1) {
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: index.php');
+        }else {
+            array_push($errors, "Wrong username/password combination");
+        }
+    }
+}
+

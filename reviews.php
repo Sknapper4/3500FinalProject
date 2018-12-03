@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,18 +27,29 @@
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Wacky Wave</a>
+        <a class="navbar-brand" href="index.php">
+            <img src="Images/WackyWaveLogo.png" width="25" height="25" class="d-inline-block align-top" alt="">
+            WackyWave
+        </a>
 
 
         <div class="collapse navbar-collapse justify-content-end font-weight-bold" id="navbarTogglerDemo02">
             <div class="navbar-nav nav-tabs bg-transparent border-bottom-0">
-                <a class="nav-item nav-link bg-transparent" href="index.html">Home <span
-                        class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link bg-transparent" href="catalog.html">Shop</a>
-                <a class="nav-item nav-link bg-transparent" href="about_us.html">About Us</a>
-                <a class="nav-item nav-link bg-transparent" href="origin_story.html">Origins</a>
-                <a class="nav-item nav-link bg-transparent active border-0" href="reviews.html">Reviews</a>
-                <a class="nav-item nav-link bg-transparent" href="login.html">Log in</a>
+                <a class="nav-item nav-link bg-transparent" href="index.php">Home <span
+                            class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link bg-transparent" href="catalog.php">Shop</a>
+                <a class="nav-item nav-link bg-transparent" href="about_us.php">About Us</a>
+                <a class="nav-item nav-link bg-transparent" href="origin_story.php">Origins</a>
+                <a class="nav-item nav-link bg-transparent" href="reviews.php">Reviews</a>
+                <?php if (isset($_SESSION['username'])) : ?>
+                    <a class="nav-item nav-link bg-transparent" href="catalog.php?logout='1'">Logout</a>
+                    <a class="nav-item nav-link bg-transparent" href="cart.php">
+                        <img src="Images/cart.svg">
+                    </a>
+                <?php endif ?>
+                <?php if (!isset($_SESSION['username'])) : ?>
+                    <a class="nav-item nav-link bg-transparent" href="login.php">Log in</a>
+                <?php endif ?>
             </div>
         </div>
     </nav>
@@ -107,7 +119,7 @@
             <div class="row justify-content-center m-4">
                 <div class="col-sm-2">
                     <div class="card bg-light img-fluid">
-                        <img src="images/Mike_Wazowski.jpg" class="card-img-top">
+                        <img src="Images/Mike_Wazowski.jpg" class="card-img-top">
                         <p class="text-center text-dark m-0">Mike W.</p>
                     </div>
                 </div>
@@ -131,7 +143,7 @@
             <div class="row justify-content-center m-4">
                 <div class="col-sm-2">
                     <div class="card bg-light img-fluid">
-                        <img src="images/Michael_Scott_with_scarf.jpg" class="card-img-top">
+                        <img src="Images/Michael_Scott_with_scarf.jpg" class="card-img-top">
                         <p class="card-text text-center text-dark m-0">Prison Mike</p>
                     </div>
                 </div>
@@ -157,7 +169,7 @@
             <div class="row m-4 justify-content-center">
                 <div class="col-sm-2 m-2">
                     <div class="card bg-light img-fluid">
-                        <img src="images/steve1.jpeg" class="card-img-top">
+                        <img src="Images/steve1.jpeg" class="card-img-top">
                         <p class="text-center text-dark m-0">Steve Buscemi</p>
                     </div>
                 </div>
@@ -181,7 +193,7 @@
             <div class="row justify-content-center m-4">
                 <div class="col-sm-2">
                     <div class="card bg-light img-fluid">
-                        <img src="images/sully.jpeg" class="card-img-top">
+                        <img src="Images/sully.jpeg" class="card-img-top">
                         <p class="text-center text-dark m-0">Sully</p>
                     </div>
                 </div>
