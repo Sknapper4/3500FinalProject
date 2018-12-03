@@ -57,8 +57,8 @@
                 <a class="text-white btn no btn-info" href="catalog.php">Shop Now</a>
             <?php endif ?>
             <?php if (!isset($_SESSION['username'])) : ?>
-                <h2 class="text-white">Be Wacky Anywhere </h2>
-                <a class="text-white btn no btn-info" href="catalog.php">Shop Now</a>
+                <h2 class="text-white">Welcome</h2>
+                <a class="text-white btn no btn-info" href="login.php">Login</a>
             <?php endif ?>
         </div>
     </div>
@@ -187,8 +187,9 @@
             <a class="btn btn-primary m-3" href="reviews.html">More Reviews</a>
         </div>
     </div>
-
 </div>
+
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

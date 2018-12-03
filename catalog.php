@@ -27,7 +27,7 @@ if (isset($_GET['logout'])) {
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand text-white" href="index.php">
+            <a class="navbar-brand" href="index.php">
                 <img src="Images/WackyWaveLogo.png" width="25" height="25" class="d-inline-block align-top" alt="">
                 WackyWave
             </a>
@@ -68,19 +68,12 @@ if (isset($_GET['logout'])) {
                         <a class="text-dark" href="catalog.php?type=Red">Red</a>
                     </li>
                     <li class="p-2 text-center">
-                        <a class="text-dark" href="catalog.php?type=Green">Green</a>
-                    </li>
-                    <li class="p-2 text-center">
                         <a class="text-dark" href="catalog.php?type=Blue">Blue</a>
                     </li>
                     <li class="p-2 text-center">
                         <a class="text-dark" href="catalog.php">All</a>
                     </li>
                 </ul>
-            </div>
-            <div class="card-body row">
-
-                <button class="btn btn-info text-white" type="button"><a href="cart.php">Cart</a></button>
             </div>
         </div>
         <div class="col-10 pre-scrollable">
