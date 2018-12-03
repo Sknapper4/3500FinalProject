@@ -39,6 +39,7 @@ if (isset($_GET['logout'])) {
                     <a class="nav-item nav-link bg-transparent" href="about_us.php">About Us</a>
                     <a class="nav-item nav-link bg-transparent" href="origin_story.php">Origins</a>
                     <a class="nav-item nav-link bg-transparent" href="reviews.php">Reviews</a>
+                    <a class="nav-item nav-link bg-transparent" href="account.php">Account</a>
                     <?php if (isset($_SESSION['username'])) : ?>
                         <a class="nav-item nav-link bg-transparent" href="catalog.php?logout='1'">Logout</a>
                         <a class="nav-item nav-link bg-transparent" href="cart.php">

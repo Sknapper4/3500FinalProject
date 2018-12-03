@@ -7,6 +7,8 @@ Files: Description
 
 about_us.php: This page is a description of the two developers of the website.
 
+account.php: This file lets users see a profile picture, and lets the user delete their account if they choose.
+
 catalog.php: This file displays all the products that we offer. It receives information from the db and displays products based on the selected category.
 
 errors.php: This file handles and displays all the errors that take place while logging in, or registering an account.

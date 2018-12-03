@@ -56,6 +56,7 @@ if (isset($_POST['reg_user'])) {
     }
 }
 
+
 if (isset($_POST['login_user'])) {
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -81,3 +82,44 @@ if (isset($_POST['login_user'])) {
     }
 }
 
+if(isset($_POST['Add'])) {
+    $target = "Images/";
+    $target = $target . basename( $_FILES['photo']['name']);
+
+    $pic=($_FILES['photo']['name']);
+
+    $query = "INSERT INTO users (photo) 
+  			  VALUES('$pic')";
+    mysqli_query($db, $query);
+
+    if(move_uploaded_file($_FILES['photo']['tmp_name'],$target)) {
+        echo "The file ". basename( $_FILES['uploadedfile']
+            ['name']). " has been uploaded, and your information has been added to the directory";
+    } else {
+        echo "Sorry, there was a problem uploading your file.";
+    }
+}
+
+if(isset($_POST['remove'])) {
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+
+    $user_check_query = "SELECT * FROM users WHERE username='$username'";
+    $result = mysqli_query($db, $user_check_query);
+    $user = mysqli_fetch_assoc($result);
+
+    if($user) {
+        $sql = "DELETE FROM users WHERE username='$username'";
+    } else {
+        echo "HELLO";
+    }
+
+    $sql = "DELETE FROM users WHERE username='$username'";
+
+    if ($db->query($sql) === TRUE) {
+        header('location: catalog.php?logout="1"');
+    } else {
+        echo "Error deleting record: " . $db->error;
+    }
+}
+
+?>

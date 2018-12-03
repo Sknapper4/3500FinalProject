@@ -31,6 +31,7 @@
             <a class="nav-item nav-link bg-transparent" href="about_us.php">About Us</a>
             <a class="nav-item nav-link bg-transparent" href="origin_story.php">Origins</a>
             <a class="nav-item nav-link bg-transparent" href="reviews.php">Reviews</a>
+            <a class="nav-item nav-link bg-transparent" href="account.php">Account</a>
             <a class="nav-item nav-link bg-transparent" href="login.php">Log in</a>
         </div>
     </div>

@@ -1,4 +1,18 @@
-<?php session_start(); ?>
+<?php
+include('server.php');
+session_start();
+if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: login.php");
+}
+$db = mysqli_connect("sql105.epizy.com", "epiz_23073061",
+    "finalproject", "epiz_23073061_FinalProject");
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,13 +29,12 @@
     <!-- Font Awesome Icon Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>The Fresh... Wave?</title>
+    <title><?php echo $_SESSION['username']; ?></title>
 </head>
 <body>
-
 <div class="ml-2 mr-2">
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,14 +43,13 @@
             WackyWave
         </a>
 
-
-        <div class="collapse navbar-collapse justify-content-end font-weight-bold" id="navbarTogglerDemo02">
+        <div class="collapse navbar-collapse justify-content-end font-weight-bold" id="navbarToggler">
             <div class="navbar-nav nav-tabs bg-transparent border-bottom-0">
                 <a class="nav-item nav-link bg-transparent" href="index.php">Home <span
-                            class="sr-only">(current)</span></a>
+                        class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link bg-transparent" href="catalog.php">Shop</a>
                 <a class="nav-item nav-link bg-transparent" href="about_us.php">About Us</a>
-                <a class="nav-item nav-link active bg-transparent border-0" href="origin_story.php">Origins</a>
+                <a class="nav-item nav-link bg-transparent" href="origin_story.php">Origins</a>
                 <a class="nav-item nav-link bg-transparent" href="reviews.php">Reviews</a>
                 <a class="nav-item nav-link bg-transparent" href="account.php">Account</a>
                 <?php if (isset($_SESSION['username'])) : ?>
@@ -53,41 +65,33 @@
         </div>
     </nav>
 </div>
-<div class="row justify-content-center origins-bg">
-    <div class="col-6 mt-4 p-0">
-        <div class="content-bg text-center p-4 m-0">
-            <h2>This here's a story all about how,</h2>
-            <p>Our lives got wavy and wacky all around,
-                <br>We've a story to tell, if an ear you'll lend,
-                <br>About how we came to sell these wacky wavy men
-                <br>
-                <br>
-                <br>In southwest Michigan, bored and dazed
-                <br>At the laptop, where we learned most of our ways
-                <br>Waving out, wacky, flailing all cool
-                <br>We were building some inflatables with all of our tools
-                <br>When a couple of guys, they didn't like our fun
-                <br>Started making jokes about how the fans run
-                <br>We made one little comment and our parents got tense
-                <br>They said, "You're gonna start a business to sell these waving men"
-                <br>
-                <br>
-                <br>We went to find a place that's as crazy as us
-                <br>License plate said "wavy" and it was a wacky bus
-                <br>When the bus took off, it went around the bend
-                <br>We started making calls to sell some tube men
-                <br>
-                <br>
-                <br>We stopped at a warehouse around 6 o'clock
-                <br>We texted the bullies, now this they can't mock
-                <br>We looked at the building, this place was a ten
-                <br>We were ready to sell some wacky wavy men
-            </p>
+<div class="row text-center justify-content-center mt-5">
+    <div class"col-6 text-center">
+    <h1><?php echo $_SESSION['username']; ?>'s Profile</h1>
+</div>
+</div>
+<div class="row mt-3 ml-5 justify-content-center">
+    <div class="col-2 border-1 border text-center justify-content-center">
+        <img src="Images/deoxys.png" width=150 height=150>
+    </div>
 
-        </div>
-
+</div>
+<div class="row mt-3 ml-5 justify-content-center">
+    <div class="col-2 text-center justify-content-center">
+        <form class="mt-2" action="account.php" method="POST">
+            <div class="form-group">
+                <label class="font-weight-bold">Username</label>
+                <input type="text" name="username" class="form-control border-info required">
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold">Password</label>
+                <input type="password" name="password" class="form-control border-info required">
+            </div>
+            <input class="btn btn-info" name="remove" type="submit" value="Remove Account">
+        </form>
     </div>
 </div>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
